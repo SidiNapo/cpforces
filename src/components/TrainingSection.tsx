@@ -2,80 +2,39 @@ import { useState } from 'react';
 import { Award, Target, Users, Shield, BookOpen, Star, CheckCircle, ArrowRight, Medal, Zap, Clock, Camera, Briefcase, GraduationCap } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import trainingClassroom from '@/assets/training-classroom.jpg';
 import certifications from '@/assets/certifications.jpg';
 import trainingEquipment from '@/assets/training-equipment.jpg';
 const TrainingSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<any>(null);
-  const courses = [{
-    id: 1,
-    title: 'دورة الحماية المقربة المتقدمة',
-    category: 'احترافي',
-    duration: '6 أسابيع',
-    level: 'متقدم',
-    price: '15,000 درهم',
-    icon: Shield,
-    color: 'from-amber-500 to-orange-600',
-    description: 'برنامج تدريبي مكثف للحماية الشخصية وفق المعايير الدولية',
-    modules: ['تقييم المخاطر والتهديدات', 'التكتيكات الدفاعية المتقدمة', 'القيادة الآمنة والمراقبة', 'البروتوكولات الأمنية الدولية', 'إدارة الأزمات والطوارئ'],
-    benefits: ['شهادة معتمدة دولياً', 'تدريب عملي ميداني', 'فرص عمل مضمونة', 'متابعة مستمرة بعد التخرج'],
-    nextStart: '15 يناير 2025'
-  }, {
-    id: 2,
-    title: 'دورة القتال التكتيكي',
-    category: 'تكتيكي',
-    duration: '4 أسابيع',
-    level: 'متوسط',
-    price: '8,000 درهم',
-    icon: Target,
-    color: 'from-red-500 to-rose-600',
-    description: 'تدريب قتالي متخصص في التقنيات التكتيكية الحديثة',
-    modules: ['أساسيات القتال القريب', 'استخدام الأسلحة التكتيكية', 'التحرك التكتيكي في الميدان', 'العمل الجماعي والتنسيق', 'السيناريوهات القتالية الواقعية'],
-    benefits: ['تدريب على أحدث المعدات', 'مدربون من القوات الخاصة', 'شهادة كفاءة قتالية', 'تطبيقات عملية مباشرة'],
-    nextStart: '1 فبراير 2025'
-  }, {
-    id: 3,
-    title: 'برنامج إعداد حراس الأمن',
-    category: 'أساسي',
-    duration: '8 أسابيع',
-    level: 'مبتدئ',
-    price: '5,000 درهم',
-    icon: Users,
-    color: 'from-blue-500 to-indigo-600',
-    description: 'برنامج شامل لإعداد حراس أمن محترفين',
-    modules: ['مبادئ الأمن والحماية', 'التواصل المهني والبروتوكول', 'الإسعافات الأولية الأساسية', 'إدارة الحشود والفعاليات', 'القوانين والأنظمة الأمنية'],
-    benefits: ['تأهيل للعمل الفوري', 'دعم في التوظيف', 'تدريب نظري وعملي', 'شهادة معترف بها محلياً'],
-    nextStart: '20 يناير 2025'
-  }, {
-    id: 4,
-    title: 'دورة الأمن السيبراني للحماية',
-    category: 'تقني',
-    duration: '3 أسابيع',
-    level: 'متوسط',
-    price: '6,500 درهم',
-    icon: Zap,
-    color: 'from-purple-500 to-pink-600',
-    description: 'دمج التقنيات الرقمية في أنظمة الحماية الشخصية',
-    modules: ['أساسيات الأمن السيبراني', 'حماية البيانات الشخصية', 'أنظمة المراقبة الذكية', 'التتبع والمراقبة الرقمية', 'التعامل مع التهديدات الإلكترونية'],
-    benefits: ['أحدث التقنيات الأمنية', 'مختبرات تطبيقية', 'شهادة تخصصية', 'دعم تقني مستمر'],
-    nextStart: '10 فبراير 2025'
-  }];
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
+  const coursesData = t('training.courses', { returnObjects: true }) as any[];
+  const courses = coursesData.map((course, index) => ({
+    id: index + 1,
+    ...course,
+    icon: [Shield, Target, Users, BookOpen][index] || Shield,
+    color: ['from-amber-500 to-orange-600', 'from-red-500 to-rose-600', 'from-blue-500 to-blue-600', 'from-green-500 to-green-600'][index] || 'from-amber-500 to-orange-600'
+  }));
+  
   const features = [{
     icon: Medal,
-    title: 'مدربون دوليون',
-    description: 'خبراء معتمدون من أرقى الأكاديميات العالمية'
+    title: t('training.features.international.title'),
+    description: t('training.features.international.description')
   }, {
     icon: Target,
-    title: 'تدريب عملي',
-    description: '80% تطبيق ميداني في بيئات واقعية'
+    title: t('training.features.practical.title'),
+    description: t('training.features.practical.description')
   }, {
     icon: Award,
-    title: 'شهادات معتمدة',
-    description: 'اعتماد دولي معترف به عالمياً'
+    title: t('training.features.certified.title'),
+    description: t('training.features.certified.description')
   }, {
     icon: Users,
-    title: 'فرص وظيفية',
-    description: 'ربط مباشر مع كبرى شركات الأمن'
+    title: t('training.features.opportunities.title'),
+    description: t('training.features.opportunities.description')
   }];
   return <section id="training" className="py-20 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
       {/* Background Effects */}
@@ -104,13 +63,13 @@ const TrainingSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 space-x-reverse px-6 py-3 bg-gradient-gold rounded-full mb-6">
             <BookOpen className="h-5 w-5 text-primary" />
-            <span className="text-primary font-cairo font-bold">أكاديمية التدريب</span>
+            <span className="text-primary font-cairo font-bold">{t('training.badge')}</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-tajawal font-black text-foreground mb-6">
-            دورات <span className="text-transparent bg-clip-text bg-gradient-gold">تدريبية احترافية</span>
+            {t('training.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('training.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground font-cairo max-w-3xl mx-auto">
-            برامج تدريبية متخصصة تؤهلك للعمل في مجال الأمن والحماية وفق أعلى المعايير الدولية
+            {t('training.subtitle')}
           </p>
         </div>
 
@@ -170,7 +129,7 @@ const TrainingSection = () => {
                       <span className="text-muted-foreground font-cairo">{module}</span>
                     </div>)}
                   {course.modules.length > 3 && <span className="text-sm text-secondary font-cairo mr-6">
-                      +{course.modules.length - 3} موضوعات أخرى
+                      +{course.modules.length - 3} {t('training.moreTopics')}
                     </span>}
                 </div>
                 
@@ -181,7 +140,7 @@ const TrainingSection = () => {
                     
                   </div>
                   <button className="group/btn flex items-center gap-2 px-6 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all">
-                    <span>عرض التفاصيل</span>
+                    <span>{t('training.viewDetails')}</span>
                     <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -223,7 +182,7 @@ const TrainingSection = () => {
                   <div>
                     <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
                       <BookOpen className="h-5 w-5" />
-                      محتوى البرنامج
+{t('training.modules')}
                     </h3>
                     <div className="space-y-3">
                       {selectedCourse.modules.map((module: string, idx: number) => <div key={idx} className="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
@@ -239,7 +198,7 @@ const TrainingSection = () => {
                   <div>
                     <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
                       <Star className="h-5 w-5" />
-                      مميزات البرنامج
+{t('training.benefits')}
                     </h3>
                     <div className="space-y-3">
                       {selectedCourse.benefits.map((benefit: string, idx: number) => <div key={idx} className="flex items-center gap-3 p-3 bg-accent/10 rounded-lg">
@@ -255,11 +214,27 @@ const TrainingSection = () => {
                 
                 {/* Action Buttons */}
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                  <button className="px-10 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                    سجل الآن
+                  <button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('training.registerMessage', { course: selectedCourse?.title || '' });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="px-10 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  >
+                    {t('training.registerNow')}
                   </button>
-                  <button className="px-10 py-4 bg-primary/10 text-foreground font-cairo font-bold text-lg rounded-full border-2 border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300">
-                    طلب معلومات
+                  <button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('training.infoMessage', { course: selectedCourse?.title || '' });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="px-10 py-4 bg-primary/10 text-foreground font-cairo font-bold text-lg rounded-full border-2 border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300"
+                  >
+                    {t('training.requestInfo')}
                   </button>
                 </div>
               </div>}
@@ -269,38 +244,38 @@ const TrainingSection = () => {
         {/* Visual Gallery */}
         <div className="mb-16">
           <h3 className="text-2xl font-tajawal font-bold text-center text-foreground mb-8">
-            بيئة تدريبية <span className="text-transparent bg-clip-text bg-gradient-gold">احترافية</span>
+            {t('training.gallery.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('training.gallery.titleHighlight')}</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="group relative h-64 rounded-2xl overflow-hidden">
-              <img src={trainingClassroom} alt="قاعات تدريب حديثة" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={trainingClassroom} alt={t('training.gallery.classroom')} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
                 <div>
                   <GraduationCap className="h-6 w-6 text-secondary mb-2" />
-                  <h4 className="text-lg font-tajawal font-bold text-foreground">قاعات تدريب حديثة</h4>
-                  <p className="text-sm text-muted-foreground font-cairo">مجهزة بأحدث التقنيات التعليمية</p>
+                  <h4 className="text-lg font-tajawal font-bold text-foreground">{t('training.gallery.classroom')}</h4>
+                  <p className="text-sm text-muted-foreground font-cairo">{t('training.gallery.classroomDesc')}</p>
                 </div>
               </div>
             </div>
             
             <div className="group relative h-64 rounded-2xl overflow-hidden">
-              <img src={certifications} alt="شهادات معتمدة دولياً" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={certifications} alt={t('training.gallery.certifications')} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
                 <div>
                   <Award className="h-6 w-6 text-secondary mb-2" />
-                  <h4 className="text-lg font-tajawal font-bold text-foreground">شهادات معتمدة</h4>
-                  <p className="text-sm text-muted-foreground font-cairo">اعتماد من أرقى المؤسسات الدولية</p>
+                  <h4 className="text-lg font-tajawal font-bold text-foreground">{t('training.gallery.certifications')}</h4>
+                  <p className="text-sm text-muted-foreground font-cairo">{t('training.gallery.certificationsDesc')}</p>
                 </div>
               </div>
             </div>
             
             <div className="group relative h-64 rounded-2xl overflow-hidden">
-              <img src={trainingEquipment} alt="معدات تدريب متطورة" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={trainingEquipment} alt={t('training.gallery.equipment')} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
                 <div>
                   <Briefcase className="h-6 w-6 text-secondary mb-2" />
-                  <h4 className="text-lg font-tajawal font-bold text-foreground">معدات احترافية</h4>
-                  <p className="text-sm text-muted-foreground font-cairo">أحدث المعدات التكتيكية والأمنية</p>
+                  <h4 className="text-lg font-tajawal font-bold text-foreground">{t('training.gallery.equipment')}</h4>
+                  <p className="text-sm text-muted-foreground font-cairo">{t('training.gallery.equipmentDesc')}</p>
                 </div>
               </div>
             </div>
@@ -316,17 +291,31 @@ const TrainingSection = () => {
           </div>
           <div className="relative z-10">
             <h3 className="text-3xl font-tajawal font-bold text-secondary mb-4">
-              ابدأ رحلتك الاحترافية اليوم
+              {t('training.cta.title')}
             </h3>
             <p className="text-lg text-foreground/90 font-cairo mb-8 max-w-2xl mx-auto">
-              انضم إلى أكثر من 500 خريج يعملون في كبرى شركات الأمن والحماية
+              {t('training.cta.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="px-10 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                تصفح جميع الدورات
+              <button 
+                onClick={() => {
+                  // Scroll to training courses section
+                  document.querySelector('#training .grid.grid-cols-1.md\\:grid-cols-2')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-10 py-4 bg-gradient-gold text-primary font-cairo font-bold text-lg rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
+                {t('training.cta.browseAll')}
               </button>
-              <button className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-cairo font-bold text-lg rounded-full border-2 border-white/20 hover:bg-white/20 transition-all duration-300">
-                احجز استشارة مجانية
+              <button 
+                onClick={() => {
+                  const whatsappNumber = '212619784088';
+                  const message = t('training.cta.consultationMessage');
+                  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
+                className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-cairo font-bold text-lg rounded-full border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+              >
+                {t('training.cta.freeConsultation')}
               </button>
             </div>
           </div>

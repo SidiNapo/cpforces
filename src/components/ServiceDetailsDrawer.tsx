@@ -3,6 +3,8 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } f
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServiceDetail {
   icon: any;
@@ -36,6 +38,8 @@ interface ServiceDetailsDrawerProps {
 
 const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawerProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
 
   if (!service) return null;
 
@@ -129,7 +133,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                 <div className="space-y-3">
                   <h3 className="text-xl font-tajawal font-bold text-foreground flex items-center gap-2">
                     <Award className="h-5 w-5 text-secondary" />
-                    المزايا الرئيسية
+                    {t('services.detailsModal.benefits')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {service.detailedInfo?.benefits.map((benefit, index) => (
@@ -145,7 +149,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                 <div className="space-y-3">
                   <h3 className="text-xl font-tajawal font-bold text-foreground flex items-center gap-2">
                     <Clock className="h-5 w-5 text-secondary" />
-                    آلية العمل
+                    {t('services.detailsModal.process')}
                   </h3>
                   <div className="space-y-2">
                     {service.detailedInfo?.process.map((step, index) => (
@@ -163,7 +167,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                 <div className="space-y-3">
                   <h3 className="text-xl font-tajawal font-bold text-foreground flex items-center gap-2">
                     <Users className="h-5 w-5 text-secondary" />
-                    الباقات المتاحة
+                    {t('services.detailsModal.packages')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {service.detailedInfo?.packages.map((pkg, index) => (
@@ -179,7 +183,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                           <h4 className="font-tajawal font-bold text-foreground">{pkg.name}</h4>
                           {pkg.highlighted && (
                             <Badge className="bg-secondary text-primary">
-                              الأكثر طلباً
+                              {t('services.detailsModal.mostPopular')}
                             </Badge>
                           )}
                         </div>
@@ -225,13 +229,30 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
 
                 {/* CTA Buttons */}
                 <div className="flex gap-3 pt-4">
-                  <Button className="flex-1 bg-gradient-to-r from-primary to-primary-glow text-secondary hover:shadow-gold">
-                    <Lock className="h-4 w-4 ml-2" />
-                    احجز الآن
+                  <Button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('services.detailsModal.bookingMessage', { service: service?.title || '' });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="flex-1 bg-gradient-to-r from-primary to-primary-glow text-secondary hover:shadow-gold"
+                  >
+                    <Lock className={`h-4 w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                    {t('services.detailsModal.bookNow')}
                   </Button>
-                  <Button variant="outline" className="flex-1 border-secondary/30 hover:border-secondary hover:bg-secondary/10">
-                    <Shield className="h-4 w-4 ml-2" />
-                    استشارة مجانية
+                  <Button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('services.detailsModal.consultationMessage', { service: service?.title || '' });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    variant="outline" 
+                    className="flex-1 border-secondary/30 hover:border-secondary hover:bg-secondary/10"
+                  >
+                    <Shield className={`h-4 w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                    {t('services.detailsModal.freeConsultation')}
                   </Button>
                 </div>
               </div>

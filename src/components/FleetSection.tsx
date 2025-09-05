@@ -1,5 +1,7 @@
 import { Car, Shield, Gauge, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import fleet1 from '@/assets/fleet-1.jpg';
 import fleet2 from '@/assets/fleet-2.jpg';
@@ -8,60 +10,14 @@ import fleet3 from '@/assets/fleet-3.jpg';
 const FleetSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [currentVehicle, setCurrentVehicle] = useState(0);
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
   
-  const vehicles = [
-    {
-      name: 'Mercedes S-Class مصفحة',
-      image: fleet1,
-      type: 'سيارة تنفيذية',
-      features: [
-        'تصفيح مستوى B7',
-        'زجاج مضاد للرصاص',
-        'نظام اتصال متقدم',
-        'تتبع GPS مباشر',
-      ],
-      specs: {
-        seats: '4 مقاعد',
-        armor: 'مستوى B7',
-        speed: '180 كم/س',
-        range: '600 كم',
-      },
-    },
-    {
-      name: 'Range Rover Sentinel',
-      image: fleet2,
-      type: 'SUV مصفحة',
-      features: [
-        'حماية 360 درجة',
-        'نظام إطفاء حريق',
-        'عجلات Run-flat',
-        'كاميرات ليلية',
-      ],
-      specs: {
-        seats: '5 مقاعد',
-        armor: 'مستوى B6',
-        speed: '200 كم/س',
-        range: '800 كم',
-      },
-    },
-    {
-      name: 'BMW 7 Series Security',
-      image: fleet3,
-      type: 'سيارة فاخرة',
-      features: [
-        'درع خفيف الوزن',
-        'نظام هواء مستقل',
-        'اتصالات مشفرة',
-        'مقاعد مدرعة',
-      ],
-      specs: {
-        seats: '4 مقاعد',
-        armor: 'مستوى B4',
-        speed: '210 كم/س',
-        range: '700 كم',
-      },
-    },
-  ];
+  const vehiclesData = t('fleet.vehicles', { returnObjects: true }) as any[];
+  const vehicles = vehiclesData.map((vehicle, index) => ({
+    ...vehicle,
+    image: [fleet1, fleet2, fleet3][index] || fleet1
+  }));
 
   const nextVehicle = () => {
     setCurrentVehicle((prev) => (prev + 1) % vehicles.length);
@@ -76,15 +32,15 @@ const FleetSection = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
-          <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
+          <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4`}>
             <Car className="h-4 w-4 text-secondary" />
-            <span className="text-secondary font-cairo text-sm">أسطول متطور</span>
+            <span className="text-secondary font-cairo text-sm">{t('fleet.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-tajawal font-black text-foreground mb-4">
-            مركباتنا <span className="text-transparent bg-clip-text bg-gradient-gold">المصفحة</span>
+            {t('fleet.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('fleet.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground font-cairo max-w-2xl mx-auto">
-            أسطول من أحدث المركبات المصفحة والمجهزة بأنظمة الأمان المتقدمة
+            {t('fleet.subtitle')}
           </p>
         </div>
 
@@ -114,13 +70,13 @@ const FleetSection = () => {
                     onClick={prevVehicle}
                     className="p-3 bg-background/20 backdrop-blur-sm rounded-full hover:bg-secondary/30 transition-all duration-300"
                   >
-                    <ChevronRight className="h-6 w-6 text-foreground" />
+                    <ChevronLeft className="h-6 w-6 text-foreground" />
                   </button>
                   <button
                     onClick={nextVehicle}
                     className="p-3 bg-background/20 backdrop-blur-sm rounded-full hover:bg-secondary/30 transition-all duration-300"
                   >
-                    <ChevronLeft className="h-6 w-6 text-foreground" />
+                    <ChevronRight className="h-6 w-6 text-foreground" />
                   </button>
                 </div>
 
@@ -141,13 +97,13 @@ const FleetSection = () => {
                 {/* Features */}
                 <div className="mb-8">
                   <h4 className="text-lg font-cairo font-semibold text-secondary mb-4">
-                    المميزات الأمنية
+                    {t('fleet.securityFeatures')}
                   </h4>
                   <div className="space-y-3">
                     {vehicles[currentVehicle].features.map((feature, index) => (
                       <div
                         key={index}
-                        className="flex items-center space-x-3 space-x-reverse"
+                        className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}
                       >
                         <div className="p-2 bg-secondary/10 rounded-lg">
                           <Shield className="h-4 w-4 text-secondary" />
@@ -163,36 +119,36 @@ const FleetSection = () => {
                 {/* Specifications */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-background/50 rounded-xl border border-border">
-                    <div className="flex items-center space-x-2 space-x-reverse mb-2">
+                    <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mb-2`}>
                       <Car className="h-4 w-4 text-secondary" />
-                      <span className="text-xs text-muted-foreground font-cairo">السعة</span>
+                      <span className="text-xs text-muted-foreground font-cairo">{t('fleet.specs.capacity')}</span>
                     </div>
                     <span className="text-lg font-tajawal font-semibold text-foreground">
                       {vehicles[currentVehicle].specs.seats}
                     </span>
                   </div>
                   <div className="p-4 bg-background/50 rounded-xl border border-border">
-                    <div className="flex items-center space-x-2 space-x-reverse mb-2">
+                    <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mb-2`}>
                       <Shield className="h-4 w-4 text-secondary" />
-                      <span className="text-xs text-muted-foreground font-cairo">التصفيح</span>
+                      <span className="text-xs text-muted-foreground font-cairo">{t('fleet.specs.armor')}</span>
                     </div>
                     <span className="text-lg font-tajawal font-semibold text-foreground">
                       {vehicles[currentVehicle].specs.armor}
                     </span>
                   </div>
                   <div className="p-4 bg-background/50 rounded-xl border border-border">
-                    <div className="flex items-center space-x-2 space-x-reverse mb-2">
+                    <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mb-2`}>
                       <Gauge className="h-4 w-4 text-secondary" />
-                      <span className="text-xs text-muted-foreground font-cairo">السرعة</span>
+                      <span className="text-xs text-muted-foreground font-cairo">{t('fleet.specs.speed')}</span>
                     </div>
                     <span className="text-lg font-tajawal font-semibold text-foreground">
                       {vehicles[currentVehicle].specs.speed}
                     </span>
                   </div>
                   <div className="p-4 bg-background/50 rounded-xl border border-border">
-                    <div className="flex items-center space-x-2 space-x-reverse mb-2">
+                    <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mb-2`}>
                       <Lock className="h-4 w-4 text-secondary" />
-                      <span className="text-xs text-muted-foreground font-cairo">المدى</span>
+                      <span className="text-xs text-muted-foreground font-cairo">{t('fleet.specs.range')}</span>
                     </div>
                     <span className="text-lg font-tajawal font-semibold text-foreground">
                       {vehicles[currentVehicle].specs.range}
@@ -201,26 +157,80 @@ const FleetSection = () => {
                 </div>
 
                 {/* CTA */}
-                <button className="w-full mt-8 py-4 bg-gradient-gold text-primary font-cairo font-bold rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105">
-                  احجز مركبة الآن
+                <button 
+                  onClick={() => {
+                    // Create a WhatsApp message for vehicle booking
+                    const whatsappNumber = '212619784088';
+                    const message = t('fleet.bookingMessage', { vehicle: vehicles[currentVehicle].name });
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
+                  className="w-full mt-8 py-4 bg-gradient-gold text-primary font-cairo font-bold rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105"
+                >
+                  {t('fleet.bookVehicle')}
                 </button>
               </div>
             </div>
           </div>
 
           {/* Vehicle Selector */}
-          <div className="flex justify-center mt-8 space-x-2 space-x-reverse">
-            {vehicles.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentVehicle(index)}
-                className={`h-2 transition-all duration-300 ${
-                  index === currentVehicle
-                    ? 'w-12 bg-secondary'
-                    : 'w-2 bg-foreground/30 hover:bg-foreground/50'
-                } rounded-full`}
-              ></button>
-            ))}
+          <div className={`flex flex-col items-center mt-8 space-y-4 ${isRTL ? 'space-x-reverse' : ''}`}>
+            {/* Vehicle Dots */}
+            <div className={`flex space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
+              {vehicles.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentVehicle(index)}
+                  className={`h-2 transition-all duration-300 ${
+                    index === currentVehicle
+                      ? 'w-12 bg-secondary'
+                      : 'w-2 bg-foreground/30 hover:bg-foreground/50'
+                  } rounded-full`}
+                ></button>
+              ))}
+            </div>
+            
+            {/* View All Vehicles Button */}
+            <button
+              onClick={() => {
+                // Show all vehicles in a grid view
+                const allVehiclesContainer = document.createElement('div');
+                allVehiclesContainer.className = 'fixed inset-0 bg-background/95 backdrop-blur-sm z-50 overflow-y-auto';
+                allVehiclesContainer.innerHTML = `
+                  <div class="container mx-auto px-4 py-8">
+                    <div class="flex justify-between items-center mb-8">
+                      <h3 class="text-3xl font-tajawal font-bold text-foreground">${t('fleet.viewAllVehicles')}</h3>
+                      <button onclick="this.closest('.fixed').remove()" class="p-2 hover:bg-secondary/10 rounded-full transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      ${vehicles.map((vehicle, index) => `
+                        <div class="bg-card rounded-2xl p-6 border border-border hover:border-secondary/50 transition-all duration-300">
+                          <div class="h-48 bg-gradient-to-br from-primary to-primary-glow rounded-xl mb-4 flex items-center justify-center">
+                            <img src="${vehicle.image}" alt="${vehicle.name}" class="w-full h-full object-cover rounded-xl" />
+                          </div>
+                          <h4 class="text-xl font-tajawal font-bold text-foreground mb-2">${vehicle.name}</h4>
+                          <p class="text-muted-foreground font-cairo text-sm mb-4">${vehicle.description}</p>
+                          <div class="flex justify-between items-center">
+                            <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs font-cairo rounded-full">${vehicle.type}</span>
+                            <button onclick="window.open('https://wa.me/212619784088?text=${encodeURIComponent(t('fleet.bookingMessage', { vehicle: vehicle.name }))}', '_blank')" class="px-4 py-2 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300">
+                              ${t('fleet.bookVehicle')}
+                            </button>
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                `;
+                document.body.appendChild(allVehiclesContainer);
+              }}
+              className="px-6 py-3 bg-secondary/10 text-secondary font-cairo font-semibold rounded-xl hover:bg-secondary/20 transition-all duration-300 border border-secondary/30"
+            >
+              {t('fleet.viewAllVehicles')}
+            </button>
           </div>
         </div>
       </div>

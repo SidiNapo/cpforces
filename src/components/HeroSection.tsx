@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Shield, Award, Users, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
 import hero3 from '@/assets/hero-3.jpg';
@@ -7,6 +9,8 @@ import hero3 from '@/assets/hero-3.jpg';
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [hero1, hero2, hero3];
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,10 +20,10 @@ const HeroSection = () => {
   }, [slides.length]);
 
   const stats = [
-    { icon: Shield, label: 'سنوات الخبرة', value: '15+' },
-    { icon: Users, label: 'عميل محمي', value: '500+' },
-    { icon: Award, label: 'شهادة احترافية', value: '25+' },
-    { icon: Clock, label: 'حماية على مدار الساعة', value: '24/7' },
+    { icon: Shield, label: t('hero.stats.experience'), value: '15+' },
+    { icon: Users, label: t('hero.stats.clients'), value: '500+' },
+    { icon: Award, label: t('hero.stats.certifications'), value: '25+' },
+    { icon: Clock, label: t('hero.stats.protection'), value: '24/7' },
   ];
 
   return (
@@ -64,24 +68,24 @@ const HeroSection = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4 md:mb-6 animate-fade-in">
+            <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4 md:mb-6 animate-fade-in`}>
               <Shield className="h-4 w-4 text-secondary" />
-              <span className="text-secondary font-cairo text-sm">الأمان الذي تستحقه</span>
+              <span className="text-secondary font-cairo text-sm">{t('hero.badge')}</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-tajawal font-black text-foreground mb-4 md:mb-6 animate-fade-up">
-              حماية{' '}
+              {t('hero.title')}{' '}
               <span className="text-transparent bg-clip-text bg-gradient-gold">
-                استثنائية
+                {t('hero.titleHighlight')}
               </span>
               <br />
-              لشخصيات استثنائية
+              {t('hero.titleSecondLine')}
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-xl md:text-2xl text-foreground/80 font-cairo mb-6 md:mb-8 animate-fade-up animation-delay-200">
-              خدمات الحماية الشخصية الأكثر تطوراً في المغرب
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA Buttons */}
@@ -90,13 +94,13 @@ const HeroSection = () => {
                 href="#contact"
                 className="inline-block px-6 sm:px-8 py-3 md:py-4 bg-gradient-gold text-primary font-cairo font-bold text-base md:text-lg rounded-xl hover:shadow-gold transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
               >
-                احجز استشارة مجانية
+                {t('hero.bookFreeConsultation')}
               </a>
               <a
                 href="#services"
                 className="inline-block px-6 sm:px-8 py-3 md:py-4 border-2 border-secondary/30 text-foreground font-cairo font-bold text-base md:text-lg rounded-xl hover:bg-secondary/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
               >
-                استكشف خدماتنا
+                {t('hero.exploreServices')}
               </a>
             </div>
 
@@ -133,14 +137,14 @@ const HeroSection = () => {
       </div>
 
       {/* Carousel Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 space-x-reverse z-20">
+      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 ${isRTL ? 'space-x-reverse' : ''} z-20`}>
         <button
           onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
           className="p-2 bg-background/20 backdrop-blur-sm rounded-full hover:bg-secondary/30 transition-all duration-300"
         >
           <ChevronRight className="h-6 w-6 text-foreground" />
         </button>
-        <div className="flex space-x-2 space-x-reverse">
+        <div className={`flex space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
           {slides.map((_, index) => (
             <button
               key={index}

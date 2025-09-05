@@ -1,65 +1,20 @@
 import { useState } from 'react';
 import { Award, Shield, Star, CheckCircle, X, Medal, Target, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 const TeamSection = () => {
   const [selectedMember, setSelectedMember] = useState<any>(null);
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
   
-  const teamMembers = [
-    {
-      name: 'أنس الهلالي',
-      role: 'مدرب محترف في الحماية المقربة',
-      image: '/lovable-uploads/4e422a12-48be-45b7-bc8d-7bc083c57c4a.png',
-      experience: '15 سنة',
-      certifications: ['دبلوم دولي EBSSA', 'TCCC متقدم', 'قيادة تكتيكية'],
-      specialties: ['حماية الشخصيات', 'تدريب احترافي'],
-      fullDescription: `أنا *أنس الهلالي*، مدرب محترف في مجال *الحماية المقربة (Close Protection)*، حاصل على عدة دبلومات وشهادات دولية في *الأمن الخاص، الحماية الشخصية، التكتيك الميداني،* والتدخلات الأمنية.
-      
-أسست مساري من خلال تدريبات مكثفة في أكاديميات عالمية، وتمكنت من بناء خبرة قوية في حماية الشخصيات الهامة، تنظيم وتأمين الفعاليات، وإعداد فرق أمن محترفة.`,
-      qualifications: [
-        'دبلوم دولي في الحماية المقربة من أكاديمية EBSSA',
-        'تكوينات متقدمة في TCCC، القيادة التكتيكية، والقتال القريب',
-        'خبرة ميدانية في تأمين الشخصيات والمناسبات الحساسة',
-        'مدرب معتمد في الدفاع الذاتي والتكتيك الأمني'
-      ],
-      services: [
-        'الحماية الشخصية للأفراد والشخصيات الهامة',
-        'تأمين تنقلات خاصة ومرافقة تكتيكية',
-        'تنظيم دورات تدريبية متقدمة في الأمن الخاص',
-        'إعداد وتأطير فرق أمن حسب المعايير الدولية'
-      ],
-      vision: 'نشر ثقافة الحماية الاحترافية، والرفع من مستوى الأمن الخاص في المغرب والعالم العربي.'
-    },
-    {
-      name: 'محمد الإدريسي',
-      role: 'خبير أمن تكتيكي',
-      image: '/lovable-uploads/eb4442c3-5a53-4e47-9afe-3d8163a60c61.png',
-      experience: '12 سنة',
-      certifications: ['أمن دبلوماسي', 'قيادة تكتيكية', 'إدارة الأزمات'],
-      specialties: ['عمليات خاصة', 'تأمين متقدم'],
-      fullDescription: `خبير في العمليات الأمنية الخاصة والتكتيك الميداني، متخصص في التخطيط الاستراتيجي للحماية وإدارة المخاطر الأمنية.
-      
-حاصل على شهادات دولية متعددة في مجال الأمن التكتيكي والعمليات الخاصة، مع خبرة واسعة في التدريب القتالي المتقدم.`,
-      qualifications: [
-        'شهادة دولية في الأمن الدبلوماسي',
-        'تدريب متقدم في القيادة التكتيكية',
-        'خبير معتمد في إدارة الأزمات الأمنية',
-        'مدرب قتال قريب ودفاع شخصي'
-      ],
-      services: [
-        'التخطيط الاستراتيجي للحماية الأمنية',
-        'تدريب الفرق على العمليات الخاصة',
-        'تقييم وإدارة المخاطر الأمنية',
-        'الإشراف على العمليات الميدانية الحساسة'
-      ],
-      vision: 'بناء فرق أمنية احترافية قادرة على التعامل مع أعقد التحديات الأمنية بكفاءة عالية.'
-    },
-  ];
+  const teamMembers = t('team.members', { returnObjects: true }) as any[];
 
   const achievements = [
-    { icon: Shield, label: 'عملية ناجحة', value: '1000+' },
-    { icon: Award, label: 'شهادة دولية', value: '50+' },
-    { icon: Star, label: 'تقييم العملاء', value: '4.9/5' },
+    { icon: Shield, label: t('team.achievements.operations'), value: '1000+' },
+    { icon: Award, label: t('team.achievements.certifications'), value: '50+' },
+    { icon: Star, label: t('team.achievements.rating'), value: '4.9/5' },
   ];
 
   return (
@@ -74,15 +29,15 @@ const TeamSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
+          <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4`}>
             <Award className="h-4 w-4 text-secondary" />
-            <span className="text-secondary font-cairo text-sm">فريق النخبة</span>
+            <span className="text-secondary font-cairo text-sm">{t('team.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-tajawal font-black text-foreground mb-4">
-            فريقنا <span className="text-transparent bg-clip-text bg-gradient-gold">المحترف</span>
+            {t('team.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('team.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground font-cairo max-w-2xl mx-auto">
-            نخبة من الخبراء المدربين على أعلى مستوى لضمان حمايتكم بكفاءة واحترافية
+            {t('team.subtitle')}
           </p>
         </div>
 
@@ -108,10 +63,10 @@ const TeamSection = () => {
                 
                 {/* Click Indicator */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-secondary/90 backdrop-blur-sm px-6 py-3 rounded-full flex items-center gap-2">
-                    <span className="text-primary font-cairo font-semibold">عرض التفاصيل</span>
-                    <Shield className="h-5 w-5 text-primary" />
-                  </div>
+                                     <div className="bg-secondary/90 backdrop-blur-sm px-6 py-3 rounded-full flex items-center gap-2">
+                     <span className="text-primary font-cairo font-semibold">{t('team.viewDetails')}</span>
+                     <Shield className="h-5 w-5 text-primary" />
+                   </div>
                 </div>
                 
                 {/* Experience Badge */}
@@ -153,11 +108,11 @@ const TeamSection = () => {
                       </span>
                     </div>
                   ))}
-                  {member.certifications.length > 2 && (
-                    <span className="text-xs text-secondary font-cairo">
-                      +{member.certifications.length - 2} شهادات أخرى
-                    </span>
-                  )}
+                                     {member.certifications.length > 2 && (
+                     <span className="text-xs text-secondary font-cairo">
+                       +{member.certifications.length - 2} {isRTL ? 'شهادات أخرى' : 'more certifications'}
+                     </span>
+                   )}
                 </div>
               </div>
             </div>
@@ -167,7 +122,7 @@ const TeamSection = () => {
         {/* Team Member Modal */}
         <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background via-background to-primary/5 border-secondary/20">
-            <DialogTitle className="sr-only">تفاصيل عضو الفريق</DialogTitle>
+                         <DialogTitle className="sr-only">{t('team.modalTitle')}</DialogTitle>
             {selectedMember && (
               <div className="relative">
                 {/* Close Button */}
@@ -190,9 +145,9 @@ const TeamSection = () => {
                     <h2 className="text-4xl font-tajawal font-bold text-foreground mb-2">{selectedMember.name}</h2>
                     <p className="text-xl text-secondary font-cairo">{selectedMember.role}</p>
                   </div>
-                  <div className="absolute top-6 left-6 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
-                    <span className="text-primary font-cairo font-bold">خبرة {selectedMember.experience}</span>
-                  </div>
+                                     <div className="absolute top-6 left-6 px-4 py-2 bg-secondary/90 backdrop-blur-sm rounded-full">
+                     <span className="text-primary font-cairo font-bold">{t('team.experience')} {selectedMember.experience}</span>
+                   </div>
                 </div>
                 
                 {/* Content Grid */}
@@ -200,10 +155,10 @@ const TeamSection = () => {
                   {/* About Section */}
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
-                        <Users className="h-5 w-5" />
-                        نبذة شخصية
-                      </h3>
+                                             <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                         <Users className="h-5 w-5" />
+                         {t('team.personalProfile')}
+                       </h3>
                       <p className="text-muted-foreground font-cairo leading-relaxed whitespace-pre-line">
                         {selectedMember.fullDescription}
                       </p>
@@ -211,10 +166,10 @@ const TeamSection = () => {
                     
                     {/* Vision */}
                     <div className="p-6 bg-secondary/10 rounded-xl border border-secondary/20">
-                      <h4 className="text-lg font-tajawal font-bold text-secondary mb-3 flex items-center gap-2">
-                        <Target className="h-5 w-5" />
-                        الرؤية
-                      </h4>
+                                             <h4 className="text-lg font-tajawal font-bold text-secondary mb-3 flex items-center gap-2">
+                         <Target className="h-5 w-5" />
+                         {t('team.vision')}
+                       </h4>
                       <p className="text-muted-foreground font-cairo">{selectedMember.vision}</p>
                     </div>
                   </div>
@@ -223,10 +178,10 @@ const TeamSection = () => {
                   <div className="space-y-6">
                     {/* Qualifications */}
                     <div>
-                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
-                        <Medal className="h-5 w-5" />
-                        الخبرات والشهادات
-                      </h3>
+                                             <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                         <Medal className="h-5 w-5" />
+                         {t('team.qualifications')}
+                       </h3>
                       <div className="space-y-3">
                         {selectedMember.qualifications.map((qual: string, idx: number) => (
                           <div key={idx} className="flex items-start gap-3">
@@ -239,10 +194,10 @@ const TeamSection = () => {
                     
                     {/* Services */}
                     <div>
-                      <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
-                        <Shield className="h-5 w-5" />
-                        الخدمات
-                      </h3>
+                                             <h3 className="text-xl font-tajawal font-bold text-secondary mb-4 flex items-center gap-2">
+                         <Shield className="h-5 w-5" />
+                         {t('team.services')}
+                       </h3>
                       <div className="space-y-3">
                         {selectedMember.services.map((service: string, idx: number) => (
                           <div key={idx} className="p-3 bg-primary/5 rounded-lg border border-primary/10 hover:bg-primary/10 transition-colors">
@@ -256,11 +211,27 @@ const TeamSection = () => {
                 
                 {/* Action Buttons */}
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                  <button className="px-8 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                    احجز استشارة
+                  <button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('team.consultationMessage', { member: selectedMember.name });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="px-8 py-3 bg-gradient-gold text-primary font-cairo font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    {t('team.bookConsultation')}
                   </button>
-                  <button className="px-8 py-3 bg-primary/10 text-foreground font-cairo font-semibold rounded-full border border-primary/20 hover:bg-primary/20 transition-all duration-300">
-                    تواصل معنا
+                  <button 
+                    onClick={() => {
+                      const whatsappNumber = '212619784088';
+                      const message = t('team.contactMessage', { member: selectedMember.name });
+                      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="px-8 py-3 bg-primary/10 text-foreground font-cairo font-semibold rounded-full border border-primary/20 hover:bg-primary/20 transition-all duration-300"
+                  >
+                    {t('team.contactUs')}
                   </button>
                 </div>
               </div>

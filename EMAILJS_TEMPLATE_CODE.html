@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form Template - Close Protection Forces</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        .form-section h3 {
+            margin: 0 0 15px 0;
+            color: #1e3a8a;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .form-section p {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .contact-info {
+            background: #e8f4fd;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .contact-info h3 {
+            color: #1e3a8a;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .urgent {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .urgent p {
+            margin: 0;
+            color: #856404;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔒 Close Protection Forces</h1>
+        <p>New Contact Form Submission</p>
+    </div>
+    
+    <div class="content">
+        <div class="form-section">
+            <h3>👤 Contact Information</h3>
+            <p><strong>Name:</strong> {{from_name}}</p>
+            <p><strong>Email:</strong> {{from_email}}</p>
+            <p><strong>Phone:</strong> {{from_phone}}</p>
+        </div>
+        
+        <div class="form-section">
+            <h3>🛡️ Service Requested</h3>
+            <p><strong>Service Type:</strong> {{service}}</p>
+        </div>
+        
+        <div class="form-section">
+            <h3>💬 Message Details</h3>
+            <p><strong>Message:</strong></p>
+            <p>{{message}}</p>
+        </div>
+        
+        <div class="urgent">
+            <p>⚠️ This is a new inquiry that requires immediate attention!</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>📞 How to Respond</h3>
+            <p><strong>Reply to:</strong> {{reply_to}}</p>
+            <p><strong>Client Name:</strong> {{from_name}}</p>
+            <p><strong>Phone:</strong> {{from_phone}}</p>
+            <p><strong>Service Interest:</strong> {{service}}</p>
+        </div>
+        
+        <div class="footer">
+            <p>This email was sent from the Close Protection Forces website contact form.</p>
+            <p>Please respond within 15 minutes to maintain our high service standards.</p>
+        </div>
+    </div>
+</body>
+</html>

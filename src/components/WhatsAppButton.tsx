@@ -1,8 +1,10 @@
 import { MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const WhatsAppButton = () => {
+  const { t } = useTranslation();
   const whatsappNumber = '212619784088'; // Remove + and dashes for WhatsApp link
-  const message = 'مرحباً، أريد الاستفسار عن خدماتكم';
+  const message = t('whatsapp.message');
   
   return (
     <a
@@ -10,7 +12,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 left-6 z-50 group"
-      aria-label="تواصل معنا عبر واتساب"
+      aria-label={t('whatsapp.ariaLabel')}
     >
       <div className="relative">
         {/* Pulse animation */}
@@ -24,7 +26,7 @@ const WhatsAppButton = () => {
         {/* Tooltip */}
         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="bg-card text-card-foreground text-xs font-cairo px-3 py-2 rounded-lg shadow-lg whitespace-nowrap border border-border">
-            تواصل معنا عبر واتساب
+            {t('whatsapp.tooltip')}
           </div>
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
             <div className="border-4 border-transparent border-t-card"></div>

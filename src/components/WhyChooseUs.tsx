@@ -1,45 +1,45 @@
 import { Shield, Award, Clock, Users, CheckCircle, Star, TrendingUp, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const WhyChooseUs = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
+  
   const features = [
     {
       icon: Award,
-      title: 'معتمدون دولياً',
-      description: 'حاصلون على أعلى الشهادات الأمنية الدولية',
+      title: t('whyChooseUs.features.international.title'),
+      description: t('whyChooseUs.features.international.description'),
       stats: '50+',
-      label: 'شهادة معتمدة',
+      label: t('whyChooseUs.features.international.label'),
     },
     {
       icon: Clock,
-      title: 'خدمة على مدار الساعة',
-      description: 'متواجدون لحمايتكم في أي وقت وأي مكان',
+      title: t('whyChooseUs.features.available.title'),
+      description: t('whyChooseUs.features.available.description'),
       stats: '24/7',
-      label: 'توفر دائم',
+      label: t('whyChooseUs.features.available.label'),
     },
     {
       icon: Users,
-      title: 'فريق محترف',
-      description: 'خبراء مدربون على أعلى المستويات العالمية',
+      title: t('whyChooseUs.features.professional.title'),
+      description: t('whyChooseUs.features.professional.description'),
       stats: '100+',
-      label: 'خبير أمني',
+      label: t('whyChooseUs.features.professional.label'),
     },
     {
       icon: TrendingUp,
-      title: 'نجاح مثبت',
-      description: 'سجل حافل بالعمليات الناجحة والعملاء الراضين',
+      title: t('whyChooseUs.features.success.title'),
+      description: t('whyChooseUs.features.success.description'),
       stats: '99.9%',
-      label: 'معدل النجاح',
+      label: t('whyChooseUs.features.success.label'),
     },
   ];
 
-  const certifications = [
-    { name: 'ISO 9001:2015', desc: 'نظام إدارة الجودة' },
-    { name: 'PSC.1', desc: 'معيار الأمن الخاص الدولي' },
-    { name: 'ASIS PSP', desc: 'محترف أمن فيزيائي' },
-    { name: 'CPP', desc: 'محترف حماية معتمد' },
-  ];
+  const certifications = t('whyChooseUs.certifications.list', { returnObjects: true }) as Array<{name: string, desc: string}>;
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-b from-card to-background relative overflow-hidden">
@@ -53,15 +53,15 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
-          <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
+          <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4`}>
             <Star className="h-4 w-4 text-secondary animate-spin-slow" />
-            <span className="text-secondary font-cairo text-sm">التميز والاحترافية</span>
+            <span className="text-secondary font-cairo text-sm">{t('whyChooseUs.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-tajawal font-black text-foreground mb-4">
-            لماذا <span className="text-transparent bg-clip-text bg-gradient-gold">تختارنا؟</span>
+            {t('whyChooseUs.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('whyChooseUs.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground font-cairo max-w-2xl mx-auto">
-            نحن الخيار الأول للحماية الشخصية في المغرب بفضل خبرتنا الواسعة والتزامنا بأعلى معايير الجودة
+            {t('whyChooseUs.subtitle')}
           </p>
         </div>
 
@@ -106,10 +106,10 @@ const WhyChooseUs = () => {
         <div className="bg-gradient-to-r from-primary via-primary-glow to-primary rounded-3xl p-8 md:p-12">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-tajawal font-bold text-secondary mb-2">
-              شهادات واعتمادات دولية
+              {t('whyChooseUs.certifications.title')}
             </h3>
             <p className="text-foreground/80 font-cairo">
-              معتمدون من أرقى المنظمات الأمنية العالمية
+              {t('whyChooseUs.certifications.subtitle')}
             </p>
           </div>
           
@@ -135,10 +135,10 @@ const WhyChooseUs = () => {
 
           {/* Trust Badge */}
           <div className="mt-8 text-center">
-            <div className="inline-flex items-center space-x-2 space-x-reverse px-6 py-3 bg-secondary/20 backdrop-blur-sm rounded-full">
+            <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-6 py-3 bg-secondary/20 backdrop-blur-sm rounded-full`}>
               <CheckCircle className="h-5 w-5 text-secondary" />
               <span className="text-secondary font-cairo font-semibold">
-                موثوق من قبل أكثر من 500 عميل راضٍ
+                {t('whyChooseUs.trustBadge')}
               </span>
             </div>
           </div>

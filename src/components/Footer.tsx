@@ -1,26 +1,23 @@
 import { Shield, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 const logo = '/lovable-uploads/299a0b3d-16b0-498a-b224-fd3d88d44733.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
 
   const quickLinks = [
-    { name: 'الرئيسية', href: '#home' },
-    { name: 'خدماتنا', href: '#services' },
-    { name: 'فريقنا', href: '#team' },
-    { name: 'مركباتنا', href: '#fleet' },
-    { name: 'التغطية', href: '#coverage' },
-    { name: 'اتصل بنا', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.team'), href: '#team' },
+    { name: t('nav.fleet'), href: '#fleet' },
+    { name: t('nav.coverage'), href: '#coverage' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
-  const services = [
-    'حماية المشاهير',
-    'حماية رجال الأعمال',
-    'حماية السياح',
-    'حماية الفعاليات',
-    'الأمن الشخصي',
-    'الحماية السكنية',
-  ];
+  const services = t('footer.servicesList', { returnObjects: true }) as string[];
 
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
@@ -36,21 +33,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 space-x-reverse mb-4">
-              <img src={logo} alt="Close Protection Forces" className="h-12 w-12 object-contain" />
+            <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''} mb-4`}>
+              <img src={logo} alt={t('footer.companyName')} className="h-12 w-12 object-contain" />
               <div>
                 <h3 className="text-lg font-tajawal font-bold text-foreground">
-                  قوات الحماية القريبة
+                  {t('footer.companyName')}
                 </h3>
                 <p className="text-xs text-muted-foreground font-cairo">
-                  Close Protection Forces
+                  {t('footer.companyNameEn')}
                 </p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground font-cairo mb-4">
-              نحن رواد خدمات الحماية الشخصية في المغرب، نقدم حلولاً أمنية متطورة بمعايير دولية لضمان سلامتكم وراحة بالكم.
+              {t('footer.description')}
             </p>
-            <div className="flex space-x-3 space-x-reverse">
+            <div className={`flex space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -67,7 +64,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-tajawal font-semibold text-foreground mb-4">
-              روابط سريعة
+              {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
@@ -86,7 +83,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-tajawal font-semibold text-foreground mb-4">
-              خدماتنا
+              {t('footer.services')}
             </h4>
             <ul className="space-y-2">
               {services.map((service, index) => (
@@ -102,10 +99,10 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-tajawal font-semibold text-foreground mb-4">
-              معلومات الاتصال
+              {t('footer.contactInfo')}
             </h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3 space-x-reverse">
+              <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
                 <Phone className="h-4 w-4 text-secondary flex-shrink-0" />
                 <a
                   href="tel:+212619784088"
@@ -115,20 +112,20 @@ const Footer = () => {
                   +212 619-784088
                 </a>
               </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
+              <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
                 <Mail className="h-4 w-4 text-secondary flex-shrink-0" />
                 <a
-                  href="mailto:info@cpforces.ma"
+                  href="mailto:anassg4s5@gmail.com"
                   className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors"
                   dir="ltr"
                 >
-                  info@cpforces.ma
+                 anassg4s5@gmail.com
                 </a>
               </div>
-              <div className="flex items-start space-x-3 space-x-reverse">
+              <div className={`flex items-start space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
                 <MapPin className="h-4 w-4 text-secondary flex-shrink-0 mt-1" />
                 <span className="text-sm text-muted-foreground font-cairo">
-                  الدار البيضاء، المغرب
+                  {t('footer.location')}
                 </span>
               </div>
             </div>
@@ -136,10 +133,10 @@ const Footer = () => {
             {/* Emergency Button */}
             <a
               href="tel:+212619784088"
-              className="inline-flex items-center space-x-2 space-x-reverse mt-4 px-4 py-2 bg-destructive text-foreground font-cairo font-semibold text-sm rounded-lg hover:bg-destructive/90 transition-all duration-300 group"
+              className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mt-4 px-4 py-2 bg-destructive text-foreground font-cairo font-semibold text-sm rounded-lg hover:bg-destructive/90 transition-all duration-300 group`}
             >
               <Phone className="h-4 w-4 group-hover:animate-pulse" />
-              <span>خط الطوارئ</span>
+              <span>{t('footer.emergencyLine')}</span>
             </a>
           </div>
         </div>
@@ -147,16 +144,16 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-muted-foreground font-cairo text-center md:text-right">
-              © {currentYear} قوات الحماية القريبة. جميع الحقوق محفوظة.
+            <div className={`text-sm text-muted-foreground font-cairo text-center ${isRTL ? 'md:text-right' : 'md:text-left'}`}>
+              © {currentYear} {t('footer.companyName')}. {t('footer.allRightsReserved')}.
             </div>
-            <div className="flex items-center space-x-4 space-x-reverse text-sm text-muted-foreground font-cairo">
+            <div className={`flex items-center space-x-4 ${isRTL ? 'space-x-reverse' : ''} text-sm text-muted-foreground font-cairo`}>
               <a href="#" className="hover:text-secondary transition-colors">
-                سياسة الخصوصية
+                {t('footer.privacyPolicy')}
               </a>
               <span>|</span>
               <a href="#" className="hover:text-secondary transition-colors">
-                الشروط والأحكام
+                {t('footer.termsConditions')}
               </a>
             </div>
           </div>

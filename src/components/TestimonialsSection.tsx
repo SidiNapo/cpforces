@@ -1,10 +1,14 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const TestimonialsSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
 
   const testimonials = [
     {
@@ -55,15 +59,15 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`}>
-          <div className="inline-flex items-center space-x-2 space-x-reverse px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4">
+          <div className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full mb-4`}>
             <Quote className="h-4 w-4 text-secondary" />
-            <span className="text-secondary font-cairo text-sm">آراء عملائنا</span>
+            <span className="text-secondary font-cairo text-sm">{t('testimonials.badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-tajawal font-black text-foreground mb-4">
-            ماذا يقول <span className="text-transparent bg-clip-text bg-gradient-gold">عملاؤنا</span>
+            {t('testimonials.title')} <span className="text-transparent bg-clip-text bg-gradient-gold">{t('testimonials.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground font-cairo max-w-2xl mx-auto">
-            ثقة عملائنا هي أغلى ما نملك، واستمرارهم معنا هو دليل نجاحنا
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -154,10 +158,10 @@ const TestimonialsSection = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
           {[
-            { value: '500+', label: 'عميل راضٍ' },
-            { value: '4.9/5', label: 'تقييم العملاء' },
-            { value: '1000+', label: 'مهمة ناجحة' },
-            { value: '10+', label: 'سنوات الخبرة' },
+            { value: '500+', label: t('testimonials.stats.clients') },
+            { value: '4.9/5', label: t('testimonials.stats.rating') },
+            { value: '1000+', label: t('testimonials.stats.missions') },
+            { value: '10+', label: t('testimonials.stats.experience') },
           ].map((stat, index) => (
             <div
               key={index}

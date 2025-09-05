@@ -1,0 +1,774 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Our Services",
+    "team": "Our Team",
+    "fleet": "Our Fleet",
+    "coverage": "Coverage",
+    "contact": "Contact Us",
+    "callNow": "Call Now",
+    "bookConsultation": "Book Consultation",
+    "companyName": "Close Protection Forces",
+    "tagline": "Professional Protection Around the Clock"
+  },
+  "hero": {
+    "badge": "The Security You Deserve",
+    "title": "Exceptional",
+    "titleHighlight": "Protection",
+    "titleSecondLine": "for Exceptional People",
+    "subtitle": "Morocco's Most Advanced Personal Protection Services",
+    "bookFreeConsultation": "Book Free Consultation",
+    "exploreServices": "Explore Our Services",
+    "stats": {
+      "experience": "Years of Experience",
+      "clients": "Protected Clients",
+      "certifications": "Professional Certifications",
+      "protection": "24/7 Protection"
+    }
+  },
+  "services": {
+    "badge": "Specialized Services",
+    "title": "Our",
+    "titleHighlight": "Professional Services",
+    "subtitle": "We offer a comprehensive range of personal protection services designed specifically to meet your security needs",
+    "learnMore": "Learn More",
+    "detailsModal": {
+      "benefits": "Key Benefits",
+      "process": "Work Process",
+      "packages": "Available Packages",
+      "bookNow": "Book Now",
+      "freeConsultation": "Free Consultation",
+      "bookingMessage": "Hello, I would like to book {{service}} service",
+      "consultationMessage": "Hello, I would like a free consultation about {{service}} service",
+      "mostPopular": "Most Popular"
+    },
+    "celebrity": {
+      "title": "Celebrity and Star Protection",
+      "description": "Specialized protection services for public figures and artists while maintaining complete privacy",
+      "features": ["24/7 Protection", "Specialized Team", "Complete Confidentiality"],
+      "overview": "We provide specialized and exclusive protection services for celebrities and stars, with a professional team trained to the highest levels to ensure complete security and privacy at all times and occasions",
+      "benefits": [
+        "24/7 personal protection",
+        "Team specialized in crowd management",
+        "Complete secrecy and privacy",
+        "Security coordination with events",
+        "Travel and movement escort",
+        "Continuous risk assessment"
+      ],
+      "process": [
+        "Comprehensive security needs assessment",
+        "Develop customized protection plan",
+        "Assign specialized protection team",
+        "Implementation and continuous monitoring"
+      ],
+      "packages": [
+        {
+          "name": "Basic Protection Package",
+          "features": ["8-hour protection", "One guard", "Security assessment"]
+        },
+        {
+          "name": "Advanced Protection Package",
+          "features": ["16-hour protection", "Two guards", "Armored vehicle"],
+          "highlighted": true
+        },
+        {
+          "name": "VIP Package",
+          "features": ["24/7 protection", "Full team", "Comprehensive services"]
+        }
+      ]
+    },
+    "business": {
+      "title": "Business Executive Protection",
+      "description": "Comprehensive security solutions for business leaders and executives during travel and meetings",
+      "features": ["Risk Assessment", "Constant Escort", "Meeting Security"],
+      "overview": "Specialized protection services for business leaders and executives, ensuring your safety in all travels and meetings while maintaining complete confidentiality",
+      "benefits": [
+        "Comprehensive security risk assessment",
+        "Constant escort during trips",
+        "Meeting room security",
+        "Security screening of locations",
+        "Coordination with hotel security",
+        "Robust emergency plans"
+      ],
+      "process": [
+        "Study business schedule and movements",
+        "Assess potential risks",
+        "Develop comprehensive security plan",
+        "Implementation and continuous monitoring"
+      ],
+      "packages": [
+        {
+          "name": "Meeting Protection",
+          "features": ["Location security", "Small team", "Security screening"]
+        },
+        {
+          "name": "Travel Protection",
+          "features": ["Full escort", "International coordination", "Safe transport"],
+          "highlighted": true
+        },
+        {
+          "name": "Comprehensive Protection",
+          "features": ["24/7 protection", "Integrated team", "All services"]
+        }
+      ]
+    },
+    "tourist": {
+      "title": "Tourist and Visitor Protection",
+      "description": "Comprehensive protection services for tourists and international visitors ensuring a safe and comfortable trip in Morocco",
+      "features": ["Security Guide", "Safe Transport", "Language Support"],
+      "overview": "We provide comprehensive protection and escort services for tourists and international visitors, ensuring a safe and enjoyable tourist experience in Morocco",
+      "benefits": [
+        "Professional security guide",
+        "Safe and comfortable transport",
+        "Multi-language support",
+        "Knowledge of tourist areas",
+        "Hotel coordination",
+        "24/7 service"
+      ],
+      "process": [
+        "Airport reception",
+        "Provide specialized security escort",
+        "Accompany on tourist tours",
+        "Safe airport delivery"
+      ],
+      "packages": [
+        {
+          "name": "One Day Package",
+          "features": ["8 hours", "One guide", "Regular transport"]
+        },
+        {
+          "name": "Weekly Package",
+          "features": ["7 days", "Escort team", "Luxury transport"],
+          "highlighted": true
+        },
+        {
+          "name": "Monthly Package",
+          "features": ["30 days", "Full team", "VIP services"]
+        }
+      ]
+    },
+    "events": {
+      "title": "Special Event Protection",
+      "description": "Comprehensive security for special occasions and events from weddings to international conferences",
+      "features": ["Security Planning", "Integrated Team", "Authority Coordination"],
+      "overview": "We provide comprehensive security services for events and special occasions, from luxury weddings to major international conferences",
+      "benefits": [
+        "Comprehensive security planning",
+        "Team specialized in events",
+        "Coordination with local authorities",
+        "Entry and exit monitoring",
+        "Robust emergency plans",
+        "VIP security"
+      ],
+      "process": [
+        "Event location inspection",
+        "Develop detailed security plan",
+        "Coordinate with event organizers",
+        "Implementation and monitoring during event"
+      ],
+      "packages": [
+        {
+          "name": "Small Events",
+          "features": ["Up to 100 people", "5 guards", "Basic security"]
+        },
+        {
+          "name": "Medium Events",
+          "features": ["Up to 500 people", "15 guards", "Advanced security"],
+          "highlighted": true
+        },
+        {
+          "name": "Large Events",
+          "features": ["500+ people", "Full team", "Comprehensive security"]
+        }
+      ]
+    },
+    "advanced": {
+      "title": "Advanced Personal Security",
+      "description": "Advanced security services including security assessment, consultation, and personal protection training",
+      "features": ["Threat Assessment", "Emergency Plans", "Specialized Training"],
+      "overview": "Advanced and specialized security services including comprehensive risk assessment, security consulting, and personal protection training programs",
+      "benefits": [
+        "Comprehensive threat assessment",
+        "Customized emergency plans",
+        "Self-defense training",
+        "Specialized security consulting",
+        "Advanced surveillance techniques",
+        "Robust security protocols"
+      ],
+      "process": [
+        "Comprehensive security situation analysis",
+        "Identify vulnerabilities and threats",
+        "Develop integrated security strategy",
+        "Implementation, training and monitoring"
+      ],
+      "packages": [
+        {
+          "name": "Security Consultation",
+          "features": ["Initial assessment", "Detailed report", "Recommendations"]
+        },
+        {
+          "name": "Advanced Protection",
+          "features": ["Comprehensive assessment", "Integrated plan", "Training"],
+          "highlighted": true
+        },
+        {
+          "name": "VIP Program",
+          "features": ["All services", "Dedicated team", "Ongoing support"]
+        }
+      ]
+    },
+    "residential": {
+      "title": "Residential Protection",
+      "description": "Securing private homes and villas with advanced surveillance systems and round-the-clock security",
+      "features": ["24/7 Security", "Smart Systems", "Rapid Response"],
+      "overview": "Comprehensive residential protection services for private homes and villas, combining trained human security with advanced smart security systems",
+      "benefits": [
+        "24/7 security",
+        "Smart surveillance systems",
+        "Rapid emergency response",
+        "Regular security patrols",
+        "Access control",
+        "Regular security reports"
+      ],
+      "process": [
+        "Residential site inspection",
+        "Design integrated security system",
+        "Install systems and train guards",
+        "Continuous monitoring and support"
+      ],
+      "packages": [
+        {
+          "name": "Basic Protection",
+          "features": ["Day guard", "Cameras", "Alarm system"]
+        },
+        {
+          "name": "Advanced Protection",
+          "features": ["24/7 security", "Smart system", "Patrols"],
+          "highlighted": true
+        },
+        {
+          "name": "Luxury Protection",
+          "features": ["Full team", "Advanced technology", "VIP services"]
+        }
+      ]
+    }
+  },
+  "whyChooseUs": {
+    "badge": "Excellence and Professionalism",
+    "title": "Why",
+    "titleHighlight": "Choose Us?",
+    "subtitle": "We are the first choice for personal protection in Morocco thanks to our extensive experience and commitment to the highest quality standards",
+    "features": {
+      "international": {
+        "title": "Internationally Certified",
+        "description": "Holding the highest international security certifications",
+        "label": "Certified Credentials"
+      },
+      "available": {
+        "title": "24/7 Service",
+        "description": "Available to protect you anytime, anywhere",
+        "label": "Constant Availability"
+      },
+      "professional": {
+        "title": "Professional Team",
+        "description": "Experts trained to the highest global standards",
+        "label": "Security Expert"
+      },
+      "success": {
+        "title": "Proven Success",
+        "description": "Outstanding record of successful operations and satisfied clients",
+        "label": "Success Rate"
+      }
+    },
+    "certifications": {
+      "title": "International Certifications and Accreditations",
+      "subtitle": "Certified by the finest global security organizations",
+      "list": [
+        { "name": "ISO 9001:2015", "desc": "Quality Management System" },
+        { "name": "PSC.1", "desc": "International Private Security Standard" },
+        { "name": "ASIS PSP", "desc": "Physical Security Professional" },
+        { "name": "CPP", "desc": "Certified Protection Professional" }
+      ]
+    },
+    "trustBadge": "Trusted by over 500 satisfied clients"
+  },
+  "team": {
+    "badge": "Elite Team",
+    "title": "Our",
+    "titleHighlight": "Professional Team",
+    "subtitle": "Elite experts trained to the highest level to ensure your protection with efficiency and professionalism",
+    "viewDetails": "View Details",
+    "modalTitle": "Team Member Details",
+    "experience": "Experience",
+    "personalProfile": "Personal Profile",
+    "vision": "Vision",
+    "qualifications": "Experience and Certifications",
+    "services": "Services",
+    "bookConsultation": "Book Consultation",
+    "contactUs": "Contact Us",
+    "consultationMessage": "Hello, I would like to book a consultation with {{member}}",
+    "contactMessage": "Hello, I would like to contact {{member}}",
+    "achievements": {
+      "operations": "Successful Operations",
+      "certifications": "International Certifications",
+      "rating": "Client Rating"
+    },
+    "members": [
+      {
+        "name": "Anas Al-Hilali",
+        "role": "Professional Close Protection Trainer",
+        "experience": "15 years",
+        "image": "/lovable-uploads/4e422a12-48be-45b7-bc8d-7bc083c57c4a.png",
+        "certifications": ["EBSSA International Diploma", "Advanced TCCC", "Tactical Leadership"],
+        "specialties": ["Personal Protection", "Professional Training"],
+        "fullDescription": "I am *Anas Al-Hilali*, a professional trainer in *Close Protection*, holding several international diplomas and certifications in *Private Security, Personal Protection, Field Tactics,* and Security Interventions.\n\nI built my career through intensive training at global academies, and I was able to build strong experience in protecting important personalities, organizing and securing events, and preparing professional security teams.",
+        "vision": "Spreading the culture of professional protection, and raising the level of private security in Morocco and the Arab world.",
+        "qualifications": [
+          "International Diploma in Close Protection from EBSSA Academy",
+          "Advanced training in TCCC, Tactical Leadership, and Close Combat",
+          "Field experience in securing personalities and sensitive events",
+          "Certified trainer in self-defense and security tactics"
+        ],
+        "services": [
+          "Personal protection for individuals and important personalities",
+          "Securing private transportation and tactical escort",
+          "Organizing advanced training courses in private security",
+          "Preparing and supervising security teams according to international standards"
+        ]
+      },
+      {
+        "name": "Mohammed Al-Idrisi",
+        "role": "Tactical Security Expert",
+        "experience": "12 years",
+        "image": "/lovable-uploads/eb4442c3-5a53-4e47-9afe-3d8163a60c61.png",
+        "certifications": ["Diplomatic Security", "Tactical Leadership", "Crisis Management"],
+        "specialties": ["Special Operations", "Advanced Security"],
+        "fullDescription": "Expert in special security operations and field tactics, specialized in strategic protection planning and security risk management.\n\nHolds multiple international certifications in the field of tactical security and special operations, with extensive experience in advanced combat training.",
+        "vision": "Building professional security teams capable of dealing with the most complex security challenges with high efficiency.",
+        "qualifications": [
+          "International certificate in diplomatic security",
+          "Advanced training in tactical leadership",
+          "Certified expert in security crisis management",
+          "Close combat and personal defense trainer"
+        ],
+        "services": [
+          "Strategic planning for security protection",
+          "Team training in special operations",
+          "Security risk assessment and management",
+          "Supervision of sensitive field operations"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Book Your",
+    "titleHighlight": "Consultation",
+    "subtitle": "Our team is available 24/7 to answer your inquiries and provide appropriate security solutions",
+    "form": {
+      "title": "Request Free Consultation",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+212 619-784088",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "serviceType": "Required Service Type",
+      "selectService": "Select Service",
+      "message": "Your Message",
+      "messagePlaceholder": "Describe your security needs...",
+      "submit": "Submit Request",
+      "sending": "Sending...",
+      "successMessage": "Your message has been sent successfully! We will contact you soon",
+      "errorMessage": "An error occurred while sending the message. Please try again",
+      "responseTime": "We will contact you within 30 minutes maximum"
+    },
+    "info": {
+      "call": "Call Us",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "headquarters": "Headquarters",
+      "location": "Casablanca, Morocco"
+    },
+    "availability": {
+      "title": "Available 24/7",
+      "subtitle": "Emergency team ready for immediate response at any time",
+      "emergencyCall": "Call Emergency Line"
+    },
+    "trustBadges": {
+      "confidentiality": "Complete Confidentiality",
+      "support": "Continuous Support",
+      "experience": "Years Experience"
+    }
+  },
+  "training": {
+    "badge": "Training Academy",
+    "title": "Professional",
+    "titleHighlight": "Training Courses",
+    "subtitle": "Specialized training programs that qualify you to work in security and protection according to the highest international standards",
+    "features": {
+      "international": {
+        "title": "International Trainers",
+        "description": "Certified experts from the finest global academies"
+      },
+      "practical": {
+        "title": "Practical Training",
+        "description": "80% field application in realistic environments"
+      },
+      "certified": {
+        "title": "Certified Credentials",
+        "description": "Internationally recognized global accreditation"
+      },
+      "opportunities": {
+        "title": "Job Opportunities",
+        "description": "Direct connection with major security companies"
+      }
+    },
+    "viewDetails": "View Details",
+    "moreTopics": "more topics",
+    "modalTitle": "Training Course Details",
+    "modules": "Program Content",
+    "benefits": "Program Benefits",
+    "registerNow": "Register Now",
+    "requestInfo": "Request Information",
+    "registerMessage": "Hello, I would like to register for {{course}}",
+    "infoMessage": "Hello, I would like information about {{course}}",
+    "gallery": {
+      "title": "Professional",
+      "titleHighlight": "Training Environment",
+      "classroom": "Modern Training Halls",
+      "classroomDesc": "Equipped with the latest educational technologies",
+      "certifications": "Certified Credentials",
+      "certificationsDesc": "Accreditation from top international institutions",
+      "equipment": "Professional Equipment",
+      "equipmentDesc": "Latest tactical and security equipment"
+    },
+    "courses": [
+      {
+        "title": "Advanced Close Protection Course",
+        "category": "Professional",
+        "level": "Advanced",
+        "difficulty": "Advanced",
+        "description": "Intensive training program for personal protection according to international standards",
+        "modules": [
+          "Risk and threat assessment",
+          "Advanced defensive tactics",
+          "Safe driving and surveillance",
+          "Crisis management",
+          "Professional communication"
+        ],
+        "benefits": [
+          "Internationally certified credential",
+          "Practical field training",
+          "Guaranteed job opportunities",
+          "Continuous post-graduation support"
+        ],
+        "additionalModules": 2
+      },
+      {
+        "title": "Tactical Combat Course",
+        "category": "Tactical",
+        "level": "Intermediate",
+        "difficulty": "Intermediate",
+        "description": "Specialized combat training in modern tactical techniques",
+        "modules": [
+          "Close combat basics",
+          "Tactical weapons use",
+          "Tactical field movement",
+          "Engagement techniques",
+          "Specialized physical training"
+        ],
+        "benefits": [
+          "Certified tactical combat credential",
+          "Intensive practical training",
+          "Real field experience",
+          "Continuous technical support"
+        ],
+        "additionalModules": 2
+      },
+      {
+        "title": "Security Guards Preparation Program",
+        "category": "Basic",
+        "level": "Beginner",
+        "difficulty": "Beginner",
+        "description": "Comprehensive program for preparing professional security guards",
+        "modules": [
+          "Security and protection principles",
+          "Professional communication and protocol",
+          "Basic first aid",
+          "Emergency handling",
+          "Security laws and regulations"
+        ],
+        "benefits": [
+          "Basic security guard certification",
+          "Comprehensive and diverse training",
+          "Immediate job opportunities",
+          "Professional follow-up program"
+        ],
+        "additionalModules": 2
+      },
+      {
+        "title": "Advanced Personal Protection Course",
+        "category": "Protection",
+        "level": "Advanced",
+        "difficulty": "Intermediate",
+        "description": "Specialized training in VIP protection and advanced personal security",
+        "modules": [
+          "Personal protection techniques",
+          "Risk and threat management",
+          "Security planning for travel",
+          "Client communication",
+          "International security protocols"
+        ],
+        "benefits": [
+          "Personal protection certification",
+          "VIP protection experience",
+          "Global company opportunities",
+          "Intensive practical training"
+        ],
+        "additionalModules": 2
+      }
+    ],
+    "cta": {
+      "title": "Start Your Professional Journey Today",
+      "subtitle": "Join over 500 graduates working in major security and protection companies",
+      "browseAll": "Browse All Courses",
+      "freeConsultation": "Book Free Consultation",
+      "consultationMessage": "Hello, I would like a free consultation about your training courses"
+    }
+  },
+  "fleet": {
+    "badge": "Advanced Fleet",
+    "title": "Our",
+    "titleHighlight": "Armored Vehicles",
+    "subtitle": "Fleet of the latest armored vehicles equipped with advanced security systems",
+    "securityFeatures": "Security Features",
+    "specs": {
+      "capacity": "Capacity",
+      "armor": "Armor Level",
+      "speed": "Speed",
+      "range": "Range"
+    },
+    "bookVehicle": "Book Vehicle Now",
+    "bookingMessage": "Hello, I would like to book {{vehicle}} for personal protection",
+    "viewAllVehicles": "View All Vehicles",
+    "vehicles": [
+      {
+        "name": "Armored Mercedes S-Class",
+        "type": "Executive Vehicle",
+        "description": "Luxury executive vehicle armored to the highest safety standards",
+        "image": "/lovable-uploads/1b5ac99b-0bb5-4e82-89f2-bb4b94b6a539.png",
+        "features": [
+          "B7 Level Armor",
+          "Bulletproof Glass",
+          "Advanced Communication System",
+          "Live GPS Tracking"
+        ],
+        "specs": {
+          "seats": "4 Seats",
+          "armor": "B7 Level",
+          "speed": "180 km/h",
+          "range": "600 km"
+        }
+      },
+      {
+        "name": "Armored BMW X7",
+        "type": "Sports Vehicle",
+        "description": "Luxury sports vehicle armored with spacious interior",
+        "image": "/lovable-uploads/1b5ac99b-0bb5-4e82-89f2-bb4b94b6a539.png",
+        "features": [
+          "B6 Level Armor",
+          "Bulletproof Glass",
+          "Advanced Suspension System",
+          "Enhanced Security"
+        ],
+        "specs": {
+          "seats": "7 Seats",
+          "armor": "B6 Level",
+          "speed": "200 km/h",
+          "range": "550 km"
+        }
+      },
+      {
+        "name": "Armored Range Rover",
+        "type": "SUV Vehicle",
+        "description": "Armored SUV for difficult terrain",
+        "image": "/lovable-uploads/1b5ac99b-0bb5-4e82-89f2-bb4b94b6a539.png",
+        "features": [
+          "B5 Level Armor",
+          "Off-road Capability",
+          "Four-wheel Drive System",
+          "Comprehensive Protection"
+        ],
+        "specs": {
+          "seats": "5 Seats",
+          "armor": "B5 Level",
+          "speed": "160 km/h",
+          "range": "500 km"
+        }
+      },
+      {
+        "name": "Armored Toyota Land Cruiser",
+        "type": "Explorer Vehicle",
+        "description": "Armored explorer vehicle for long journeys",
+        "image": "/lovable-uploads/1b5ac99b-0bb5-4e82-89f2-bb4b94b6a539.png",
+        "features": [
+          "B6 Level Armor",
+          "High Reliability",
+          "Easy Maintenance",
+          "Outstanding Performance"
+        ],
+        "specs": {
+          "seats": "5 Seats",
+          "armor": "B6 Level",
+          "speed": "170 km/h",
+          "range": "700 km"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Client Reviews",
+    "title": "What Our",
+    "titleHighlight": "Clients Say",
+    "subtitle": "Our clients' trust is our most precious asset, and their continued partnership is proof of our success",
+    "stats": {
+      "clients": "Satisfied Clients",
+      "rating": "Client Rating",
+      "missions": "Successful Missions",
+      "experience": "Years Experience"
+    },
+    "clientTestimonials": [
+      {
+        "name": "Karim Al-Alawi",
+        "role": "Businessman",
+        "text": "Exceptional service and very high professional level. The Close Protection Forces team provided me with complete security during all my travels and business. I highly recommend their services.",
+        "rating": 5,
+        "initial": "K"
+      },
+      {
+        "name": "Sarah Al-Mansoori",
+        "role": "Executive Manager",
+        "text": "The team is professional and trained to the highest level. The service is fast and the response is immediate. I feel completely safe with Close Protection Forces.",
+        "rating": 5,
+        "initial": "S"
+      },
+      {
+        "name": "Ahmed Ben Ali",
+        "role": "International Ambassador",
+        "text": "I have dealt with many protection companies around the world, and Close Protection Forces is among the best I have seen. High professionalism and complete confidentiality.",
+        "rating": 5,
+        "initial": "A"
+      },
+      {
+        "name": "Leila Al-Fassi",
+        "role": "Famous Artist",
+        "text": "I completely trust the Close Protection Forces team. They provide protection while respecting privacy and peace of mind. Excellent service.",
+        "rating": 5,
+        "initial": "L"
+      }
+    ]
+  },
+  "coverage": {
+    "badge": "Comprehensive Coverage",
+    "title": "We Cover",
+    "titleHighlight": "All of Morocco",
+    "subtitle": "Our services are available throughout the kingdom with fast and effective response",
+    "stats": {
+      "cities": "Major Cities",
+      "service": "24/7 Service",
+      "coverage": "National Coverage"
+    },
+    "cities": [
+      {
+        "name": "Casablanca",
+        "coverage": "Full Coverage",
+        "response": "10 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Rabat",
+        "coverage": "Full Coverage",
+        "response": "10 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Marrakech",
+        "coverage": "Full Coverage",
+        "response": "15 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Tangier",
+        "coverage": "Full Coverage",
+        "response": "15 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Fez",
+        "coverage": "Full Coverage",
+        "response": "15 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Agadir",
+        "coverage": "Full Coverage",
+        "response": "20 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Essaouira",
+        "coverage": "Partial Coverage",
+        "response": "25 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Chefchaouen",
+        "coverage": "Partial Coverage",
+        "response": "25 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Meknes",
+        "coverage": "Partial Coverage",
+        "response": "20 minutes",
+        "responseLabel": "Response Time"
+      },
+      {
+        "name": "Ouarzazate",
+        "coverage": "Partial Coverage",
+        "response": "30 minutes",
+        "responseLabel": "Response Time"
+      }
+    ]
+  },
+  "whatsapp": {
+    "message": "Hello, I would like to know more about protection services"
+  },
+  "footer": {
+    "companyName": "Close Protection Forces",
+    "companyNameEn": "Close Protection Forces",
+    "description": "We are the leaders in personal protection services in Morocco, providing advanced security solutions with international standards to ensure your safety and peace of mind.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactInfo": "Contact Information",
+    "emergencyLine": "Emergency Line",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "allRightsReserved": "All Rights Reserved",
+    "location": "Casablanca, Morocco",
+    "servicesList": [
+      "Celebrity Protection",
+      "Business Protection",
+      "Tourist Protection",
+      "Event Protection",
+      "Personal Security",
+      "Residential Protection"
+    ]
+  },
+  "whatsapp": {
+    "message": "Hello, I would like to inquire about your services",
+    "tooltip": "Contact us via WhatsApp",
+    "ariaLabel": "Contact us via WhatsApp"
+  }
+}
