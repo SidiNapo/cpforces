@@ -65,7 +65,7 @@ const Navigation = () => {
           <div className={`hidden lg:flex items-center space-x-4 ${isRTL ? 'space-x-reverse' : ''}`}>
             <LanguageSwitcher />
             <a
-              href="tel:+212619784088"
+              href="tel:+212638255620"
               className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-2 border border-secondary/30 rounded-lg hover:bg-secondary/10 transition-all duration-300 group`}
             >
               <Phone className="h-4 w-4 text-secondary group-hover:animate-pulse" />
@@ -110,7 +110,7 @@ const Navigation = () => {
             <div className="pt-4 border-t border-border flex flex-col space-y-3">
               <LanguageSwitcher />
               <a
-                href="tel:+212619784088"
+                href="tel:+212638255620"
                 className={`flex items-center justify-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-4 py-3 border border-secondary/30 rounded-lg hover:bg-secondary/10 transition-all duration-300`}
               >
                 <Phone className="h-4 w-4 text-secondary" />

@@ -213,7 +213,7 @@ const TeamSection = () => {
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
                   <button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('team.consultationMessage', { member: selectedMember.name });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');
@@ -224,7 +224,7 @@ const TeamSection = () => {
                   </button>
                   <button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('team.contactMessage', { member: selectedMember.name });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');

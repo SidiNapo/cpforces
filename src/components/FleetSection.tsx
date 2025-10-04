@@ -160,7 +160,7 @@ const FleetSection = () => {
                 <button 
                   onClick={() => {
                     // Create a WhatsApp message for vehicle booking
-                    const whatsappNumber = '212619784088';
+                    const whatsappNumber = '212638255620';
                     const message = t('fleet.bookingMessage', { vehicle: vehicles[currentVehicle].name });
                     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
@@ -216,7 +216,7 @@ const FleetSection = () => {
                           <p class="text-muted-foreground font-cairo text-sm mb-4">${vehicle.description}</p>
                           <div class="flex justify-between items-center">
                             <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs font-cairo rounded-full">${vehicle.type}</span>
-                            <button onclick="window.open('https://wa.me/212619784088?text=${encodeURIComponent(t('fleet.bookingMessage', { vehicle: vehicle.name }))}', '_blank')" class="px-4 py-2 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300">
+                            <button onclick="window.open('https://wa.me/212638255620?text=${encodeURIComponent(t('fleet.bookingMessage', { vehicle: vehicle.name }))}', '_blank')" class="px-4 py-2 bg-gradient-gold text-primary font-cairo font-semibold rounded-lg hover:shadow-gold transition-all duration-300">
                               ${t('fleet.bookVehicle')}
                             </button>
                           </div>

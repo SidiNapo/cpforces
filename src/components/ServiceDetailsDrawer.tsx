@@ -231,7 +231,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                 <div className="flex gap-3 pt-4">
                   <Button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('services.detailsModal.bookingMessage', { service: service?.title || '' });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');
@@ -243,7 +243,7 @@ const ServiceDetailsDrawer = ({ service, isOpen, onClose }: ServiceDetailsDrawer
                   </Button>
                   <Button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('services.detailsModal.consultationMessage', { service: service?.title || '' });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');

@@ -105,7 +105,7 @@ const Footer = () => {
               <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
                 <Phone className="h-4 w-4 text-secondary flex-shrink-0" />
                 <a
-                  href="tel:+212619784088"
+                  href="tel:+212638255620"
                   className="text-sm text-muted-foreground font-cairo hover:text-secondary transition-colors"
                   dir="ltr"
                 >
@@ -132,7 +132,7 @@ const Footer = () => {
 
             {/* Emergency Button */}
             <a
-              href="tel:+212619784088"
+              href="tel:+212638255620"
               className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} mt-4 px-4 py-2 bg-destructive text-foreground font-cairo font-semibold text-sm rounded-lg hover:bg-destructive/90 transition-all duration-300 group`}
             >
               <Phone className="h-4 w-4 group-hover:animate-pulse" />

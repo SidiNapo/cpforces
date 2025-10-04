@@ -70,13 +70,13 @@ const ContactSection = () => {
       icon: Phone,
       title: t('contact.info.call'),
       value: '+212 619-784088',
-      action: 'tel:+212619784088',
+      action: 'tel:+212638255620',
     },
     {
       icon: MessageCircle,
       title: t('contact.info.whatsapp'),
       value: '+212 619-784088',
-      action: 'https://wa.me/212619784088',
+      action: 'https://wa.me/212638255620',
     },
     {
       icon: Mail,
@@ -286,7 +286,7 @@ const ContactSection = () => {
                 {t('contact.availability.subtitle')}
               </p>
               <a
-                href="tel:+212619784088"
+                href="tel:+212638255620"
                 className={`inline-flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''} px-6 py-3 bg-foreground/10 backdrop-blur-sm rounded-xl hover:bg-foreground/20 transition-all duration-300`}
               >
                 <Phone className="h-5 w-5 text-foreground" />

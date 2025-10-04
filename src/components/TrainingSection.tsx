@@ -216,7 +216,7 @@ const TrainingSection = () => {
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
                   <button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('training.registerMessage', { course: selectedCourse?.title || '' });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');
@@ -227,7 +227,7 @@ const TrainingSection = () => {
                   </button>
                   <button 
                     onClick={() => {
-                      const whatsappNumber = '212619784088';
+                      const whatsappNumber = '212638255620';
                       const message = t('training.infoMessage', { course: selectedCourse?.title || '' });
                       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                       window.open(whatsappUrl, '_blank');
@@ -308,7 +308,7 @@ const TrainingSection = () => {
               </button>
               <button 
                 onClick={() => {
-                  const whatsappNumber = '212619784088';
+                  const whatsappNumber = '212638255620';
                   const message = t('training.cta.consultationMessage');
                   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
                   window.open(whatsappUrl, '_blank');

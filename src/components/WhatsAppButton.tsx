@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const WhatsAppButton = () => {
   const { t } = useTranslation();
-  const whatsappNumber = '212619784088'; // Remove + and dashes for WhatsApp link
+  const whatsappNumber = '212638255620'; // Remove + and dashes for WhatsApp link
   const message = t('whatsapp.message');
   
   return (
